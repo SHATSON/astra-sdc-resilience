@@ -16,6 +16,8 @@ that `analysis/analyze.py` can read them unchanged.
 | `detected` | how many of those were detected |
 | `verifications_clean` | verifications executed in fault-free runs |
 | `false_positives` | detections in those fault-free runs |
+| `median_output_error_unprotected` | output fidelity: median relative error with no protection |
+| `median_output_error_protected` | output fidelity: median relative error after ASTRA recovery |
 
 ## `overhead.csv` — Table 5 of the paper (H3)
 
@@ -34,6 +36,7 @@ that `analysis/analyze.py` can read them unchanged.
 | `period_s` | verification-and-checkpoint period T in seconds |
 | `waste` | measured fraction of wall-clock time not spent on useful progress |
 | `forward_recovery_rate` | measured p_c over the same run |
+| `periods_executed` | number of complete work-verify-checkpoint periods measured |
 
 Record the injection log (site, bit position, time, detector outcome, recovery
 action) alongside these files; `docs/reproducibility-checklist.md` lists

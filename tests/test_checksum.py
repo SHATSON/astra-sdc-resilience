@@ -51,6 +51,32 @@ def test_weights_have_expected_shape():
     assert np.allclose(w2, [1, 2, 3, 4, 5])
 
 
+def test_burst_repairs_are_only_safe_when_reverified():
+    """Two-vector localization assumes a single corrupted entry. Under a burst
+    it can propose a plausible but wrong correction, so a repair must be
+    accepted only after verification passes again."""
+    from astra import inject_burst
+
+    bad_repairs = 0
+    for seed in range(40):
+        rng = np.random.default_rng(seed)
+        A, B = rng.standard_normal((32, 32)), rng.standard_normal((32, 32))
+        golden = A @ B
+        C = golden.copy()
+        inject_burst(C, rng, 3)
+        if np.allclose(C, golden):       # the flips were numerically negligible
+            continue
+        fixed, corrections = locate_and_correct(C, A, B, tol=1e-9)
+        if not corrections:
+            continue
+        restored = np.allclose(fixed, golden)
+        ok, _ = freivalds_verify(fixed, A, B, k=12, rng=np.random.default_rng(seed + 1))
+        # Verification must never accept a product that was not restored.
+        assert ok is False or restored
+        bad_repairs += int(not restored)
+    assert bad_repairs > 0, "expected at least one burst to defeat single-error localization"
+
+
 def test_freivalds_accepts_correct_and_rejects_corrupted():
     rng = np.random.default_rng(0)
     n = 32

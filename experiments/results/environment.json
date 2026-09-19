@@ -1,0 +1,113 @@
+{
+  "python": "3.12.3",
+  "numpy": "2.4.4",
+  "platform": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "config": {
+    "seed": 20260919,
+    "workloads": [
+      {
+        "kernel": "cg",
+        "size": 384
+      }
+    ],
+    "output_tolerance": [
+      1e-10,
+      1e-08,
+      1e-06
+    ],
+    "injection_trials": 2294,
+    "clean_verifications": 20000,
+    "timing_repetitions": 50,
+    "freivalds_trials": 10,
+    "gamma": 10.0,
+    "cg_iterations": 300,
+    "check_every": 10,
+    "cg_tolerance": 1e-10,
+    "period_sweep_s": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "waste_seconds_per_period": 30.0,
+    "error_rate_per_second": 0.05
+  },
+  "timestamp_utc": "2026-09-19T15:39:36Z",
+  "chunks": [
+    {
+      "only": [
+        "coverage"
+      ],
+      "workloads": [
+        "cg"
+      ],
+      "suffix": "_cg"
+    },
+    {
+      "only": [
+        "coverage"
+      ],
+      "workloads": [
+        "matmul"
+      ],
+      "suffix": "_matmul"
+    },
+    {
+      "only": [
+        "overhead"
+      ],
+      "workloads": [
+        "matmul",
+        "cg"
+      ],
+      "suffix": "_overhead"
+    },
+    {
+      "only": [
+        "waste"
+      ],
+      "workloads": [
+        "matmul"
+      ],
+      "suffix": "_w4"
+    }
+  ],
+  "note": "Campaign executed in chunks because the execution environment limits a single command to 300 s. Coverage and overhead used the single-value fault model; the waste sweep used a mixture of single-value and burst corruption (burst_fraction 0.5) so that rollback occurs and the model can be tested. Chunk boundaries are recorded above.",
+  "waste_config": {
+    "seed": 20260919,
+    "workloads": [
+      {
+        "kernel": "matmul",
+        "size": 384
+      }
+    ],
+    "output_tolerance": [
+      1e-10,
+      1e-08,
+      1e-06
+    ],
+    "injection_trials": 2294,
+    "clean_verifications": 20000,
+    "timing_repetitions": 50,
+    "freivalds_trials": 10,
+    "gamma": 10.0,
+    "cg_iterations": 300,
+    "check_every": 10,
+    "cg_tolerance": 1e-10,
+    "period_sweep_s": [
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.8,
+      1.6
+    ],
+    "waste_seconds_per_period": 38.0,
+    "error_rate_per_second": 0.5,
+    "burst_fraction": 0.5,
+    "burst_size": 3
+  }
+}

@@ -13,6 +13,7 @@ from .checksum import (
     locate_and_correct,
 )
 from .freivalds import freivalds_verify, detection_threshold
+from .injection import inject, inject_burst
 from .iterative import residual_gap, conjugacy_gap
 from .resilience_model import (
     verification_ratio,
@@ -27,6 +28,8 @@ __all__ = [
     "locate_and_correct",
     "freivalds_verify",
     "detection_threshold",
+    "inject",
+    "inject_burst",
     "residual_gap",
     "conjugacy_gap",
     "verification_ratio",

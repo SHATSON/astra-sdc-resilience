@@ -16,6 +16,7 @@ artifact before results are reported.
 - [ ] Random seeds for injection site, bit position and timing
 - [ ] Calibration data and the resulting γ for Eq. 5
 - [ ] Output tolerances used to classify significant errors
+- [ ] Whether injection was architectural or software-level, and the claims narrowed accordingly
 
 ## Data
 - [ ] `coverage.csv`, `overhead.csv`, `waste.csv` following the documented schemas

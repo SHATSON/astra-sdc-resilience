@@ -1,0 +1,21 @@
+# Configuration actually executed for the results reported in the manuscript.
+# Environment: 1 vCPU, ~3 GB RAM Linux container (see experiments/results/environment.json).
+# Sizes are bounded by that container, not by the method.
+seed: 20260919
+workloads:
+  - {kernel: matmul, size: 384}
+  - {kernel: cg, size: 384}
+output_tolerance: [1.0e-10, 1.0e-8, 1.0e-6]
+injection_trials: 2294          # sample size from analysis/analyze.py
+clean_verifications: 20000      # resolves a false-positive rate near 1e-4
+timing_repetitions: 50
+freivalds_trials: 10
+gamma: 10.0
+cg_iterations: 300
+check_every: 10
+cg_tolerance: 1.0e-10
+period_sweep_s: [0.05, 0.1, 0.2, 0.4, 0.8, 1.6]
+waste_seconds_per_period: 38.0
+error_rate_per_second: 0.5      # strikes are frequent enough to measure within the window
+burst_fraction: 0.5             # half of the strikes are multi-entry bursts (Section 4.2)
+burst_size: 3

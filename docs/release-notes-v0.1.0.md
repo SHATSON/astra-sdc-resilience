@@ -9,10 +9,15 @@ First public release. Contains the design and analytical artifact:
 - Statistical analysis used by the protocol: Wilson score intervals, Wilcoxon
   signed-rank with Holm correction, and least-squares fit of measured waste to
   Eq. 9 (`analysis/analyze.py`)
-- 36 unit tests, including the worked localization example of Figure 6 and the
+- A single-node campaign harness implementing the rescoped study of Section 7.8:
+  software-level injection, matmul and CG workloads, ASTRA against unprotected
+  execution and DMR, and every metric of Table 3 (`experiments/run_campaign.py`)
+- 48 unit tests, including the worked localization example of Figure 6 and the
   scaling corollary of Proposition 2
 - Protocol, reproducibility checklist, and reference verification log (`docs/`)
 
-**No experimental results.** The campaigns of Chapter 7 have not been run, so
-`experiments/results/` contains only schemas and Tables 4 and 5 of the paper are
-unpopulated.
+**Measurements included, with a narrow scope.** `experiments/results/` holds the
+coverage, overhead and waste data of the single-node campaign, executed in a
+shared single-vCPU container at n = 384 with software-level injection. The
+full-scale campaign with an architectural injector has not been run, and the
+checkpoint/restart and data-analytic baselines were not executed.

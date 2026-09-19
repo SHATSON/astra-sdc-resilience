@@ -1,0 +1,19 @@
+# Rescoped single-node campaign (Section 7.8 of the paper).
+# Runs on one workstation with software-level injection. Claims supported here
+# concern corrupted data values, not architectural faults.
+seed: 20260919
+workloads:
+  - {kernel: matmul, size: 512}
+  - {kernel: cg, size: 512}
+output_tolerance: [1.0e-10, 1.0e-8, 1.0e-6]
+injection_trials: 2294          # from analysis/analyze.py sample-size output
+clean_verifications: 20000      # enough to resolve a 1e-4 false-positive rate
+timing_repetitions: 30
+freivalds_trials: 10
+gamma: 10.0                     # recalibrate on your machine before reporting
+cg_iterations: 300
+check_every: 10
+cg_tolerance: 1.0e-10
+period_sweep_s: [0.5, 1, 2, 4, 8, 16]
+waste_seconds_per_period: 60.0
+error_rate_per_second: 0.05

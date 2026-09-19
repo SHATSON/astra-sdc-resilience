@@ -1,0 +1,18 @@
+# Fast sanity run (a couple of minutes). Not for reporting: the sample sizes are
+# far too small for the confidence intervals the protocol requires.
+seed: 1
+workloads:
+  - {kernel: matmul, size: 128}
+  - {kernel: cg, size: 128}
+output_tolerance: [1.0e-8]
+injection_trials: 30
+clean_verifications: 30
+timing_repetitions: 3
+freivalds_trials: 4
+gamma: 10.0
+cg_iterations: 120
+check_every: 10
+cg_tolerance: 1.0e-10
+period_sweep_s: [0.25, 0.5, 1.0]
+waste_seconds_per_period: 3.0
+error_rate_per_second: 0.1

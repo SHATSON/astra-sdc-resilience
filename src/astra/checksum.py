@@ -56,6 +56,8 @@ def locate_and_correct(
         if abs(d1[i]) <= tol:
             continue
         j_float = d2[i] / d1[i]
+        if not np.isfinite(j_float):
+            continue
         j = int(round(j_float))
         if not (1 <= j <= n) or abs(j_float - j) > 1e-6:
             # Not consistent with exactly one corrupted entry in this row.
