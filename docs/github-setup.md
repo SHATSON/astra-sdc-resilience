@@ -5,7 +5,7 @@ The repository is ready to push; it has no remote configured and no commits yet.
 ## 1. Replace the placeholders
 
 ```bash
-grep -rn "<your-github-username>" .        # README.md, CITATION.cff
+grep -rn "SHATSON" .        # README.md, CITATION.cff
 ```
 
 Replace them with your account or organization name, and fill in the author
@@ -29,7 +29,7 @@ Or with the web UI: create an empty repository named `astra-sdc-resilience`
 git init -b main
 git add .
 git commit -m "ASTRA v0.1.0: reference implementation, figures, evaluation protocol"
-git remote add origin https://github.com/<your-github-username>/astra-sdc-resilience.git
+git remote add origin https://github.com/SHATSON/astra-sdc-resilience.git
 git push -u origin main
 ```
 

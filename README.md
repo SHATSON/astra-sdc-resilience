@@ -5,9 +5,9 @@ Reference implementation, figure sources, and evaluation protocol for the paper
 > **Exploiting Algorithmic Structure for Efficient Detection and Recovery from
 > Silent Data Corruptions in Large-Scale Computing Systems**
 
-[![tests](https://github.com/<your-github-username>/astra-sdc-resilience/actions/workflows/tests.yml/badge.svg)](https://github.com/<your-github-username>/astra-sdc-resilience/actions/workflows/tests.yml)
+[![tests](https://github.com/SHATSON/astra-sdc-resilience/actions/workflows/tests.yml/badge.svg)](https://github.com/SHATSON/astra-sdc-resilience/actions/workflows/tests.yml)
 
-> **Before you publish this repository:** replace every `<your-github-username>`
+> **Before you publish this repository:** replace every `SHATSON`
 > placeholder (in this file, `CITATION.cff`, and the paper's artifact statement)
 > with the real account or organization name, and add the archival DOI once you
 > deposit a release on Zenodo.
@@ -56,7 +56,7 @@ paper/                the manuscript
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-github-username>/astra-sdc-resilience.git
+git clone https://github.com/SHATSON/astra-sdc-resilience.git
 cd astra-sdc-resilience
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
