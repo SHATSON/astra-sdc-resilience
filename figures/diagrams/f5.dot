@@ -1,0 +1,15 @@
+digraph G { rankdir=TB; nodesep=0.2; ranksep=0.4; bgcolor=white;
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=10, color="#34495E"];
+ edge [color="#34495E", arrowsize=0.7];
+ r [label="Exploitable algorithmic invariants", fillcolor="#34495E", fontcolor=white, fontsize=11];
+ f1 [label="Family I\nAlgebraic checksum\ninvariants", fillcolor="#D6EAF8"];
+ f2 [label="Family II\nRandomized verification\ncertificates", fillcolor="#D5F5E3"];
+ f3 [label="Family III\nConvergence and\nrecurrence invariants", fillcolor="#FCF3CF"];
+ f4 [label="Family IV\nDomain conservation\ninvariants", fillcolor="#FADBD8"];
+ r->{f1 f2 f3 f4};
+ e1 [label="Checksum-encoded\nmatrices\nDetect + locate + correct", fillcolor=white];
+ e2 [label="Freivalds check,\nresidual checks\nDetect (probabilistic)", fillcolor=white];
+ e3 [label="True vs. recursive residual,\nA-conjugacy\nDetect + self-heal", fillcolor=white];
+ e4 [label="Mass/energy conservation,\nnormalization, bounds\nDetect (approximate)", fillcolor=white];
+ f1->e1; f2->e2; f3->e3; f4->e4;
+}

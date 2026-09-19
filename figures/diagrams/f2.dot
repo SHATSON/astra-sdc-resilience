@@ -1,0 +1,11 @@
+digraph G { rankdir=TB; ranksep=0.3; bgcolor=white;
+ node [shape=box, style="filled", fontname="DejaVu Sans", fontsize=11, width=6.2, color="#34495E"];
+ edge [color="#34495E", arrowsize=0.7];
+ a [label="Research philosophy: Pragmatism\n(with a falsificationist stance toward empirical claims)", fillcolor="#34495E", fontcolor=white];
+ b [label="Research approach: Deductive hypothesis testing informed by design reasoning", fillcolor="#5D6D7E", fontcolor=white];
+ c [label="Research strategy: Design Science Research Methodology (DSRM)", fillcolor="#85929E", fontcolor=white];
+ d [label="Research design: Quantitative controlled experiments + analytical modeling", fillcolor="#AEB6BF"];
+ e [label="Data collection: Fault-injection campaigns and runtime measurements", fillcolor="#D6DBDF"];
+ f [label="Data analysis: Wilson intervals, Wilcoxon signed-rank tests, Holm correction, model fitting", fillcolor="#EBEDEF"];
+ a->b->c->d->e->f;
+}

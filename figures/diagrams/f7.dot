@@ -1,0 +1,16 @@
+digraph G { rankdir=TB; ranksep=0.3; nodesep=0.35; bgcolor=white;
+ node [fontname="DejaVu Sans", fontsize=10, color="#34495E", style=filled, fillcolor="#EEF2F7"];
+ edge [color="#34495E", arrowsize=0.7, fontname="DejaVu Sans", fontsize=9];
+ s [label="Detector fires\n(discrepancy > threshold)", shape=box, style="rounded,filled", fillcolor="#34495E", fontcolor=white];
+ q1 [label="Single error\nlocalized?", shape=diamond];
+ a1 [label="In-place correction", shape=box, fillcolor="#D5F5E3"];
+ q2 [label="Corrupted operation\nidentifiable?", shape=diamond];
+ a2 [label="Local recomputation", shape=box, fillcolor="#D5F5E3"];
+ q3 [label="Convergent\niterative method?", shape=diamond];
+ a3 [label="Restart from last\nverified iterate", shape=box, fillcolor="#FCF3CF"];
+ a4 [label="Roll back to last\nverified checkpoint", shape=box, fillcolor="#FADBD8"];
+ v [label="Re-verify and resume", shape=box, style="rounded,filled", fillcolor=white];
+ s->q1; q1->a1 [label=" yes"]; q1->q2 [label=" no"]; q2->a2 [label=" yes"]; q2->q3 [label=" no"]; q3->a3 [label=" yes"]; q3->a4 [label=" no"];
+ {a1 a2 a3 a4}->v;
+ {rank=same; q1 a1} {rank=same; q2 a2} {rank=same; q3 a3}
+}

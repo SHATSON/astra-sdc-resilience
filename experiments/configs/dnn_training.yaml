@@ -1,0 +1,29 @@
+# Fault-injection campaign template: DNN training (Family II + IV)
+# Fill in the site-specific fields before running. Nothing here has been run yet.
+campaign: dnn_training
+workload:
+  models: []              # e.g. a convolutional and a transformer model
+  datasets: []
+  precision: float32
+protection:
+  schemes: [unprotected, astra, dmr, checkpoint_verify, data_analytic]
+  astra:
+    invariant_families: [II, IV]
+    freivalds_trials: 4               # on dense layer products
+    activation_bound_window: 50       # iterations used to set Family IV bounds
+injection:
+  tool: pytorchfi         # weight and neuron perturbations
+  model: single_bit_flip
+  manifestations: [single_value, burst, control_adjacent]
+  bit_field_strata: [sign, exponent, mantissa]
+  trials_per_configuration: null   # set from analysis/analyze.py sample-size output
+  seed: 20260919
+measurement:
+  output_tolerance: [0.001, 0.005, 0.01]        # accuracy loss treated as significant
+  timing_repetitions: 30
+environment:
+  machine: null
+  cpu: null
+  compiler: null
+  framework: null
+  gpu: null

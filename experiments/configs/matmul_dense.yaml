@@ -1,0 +1,28 @@
+# Fault-injection campaign template: dense matrix multiplication (Family I + II)
+# Fill in the site-specific fields before running. Nothing here has been run yet.
+campaign: matmul_dense
+workload:
+  kernel: dgemm
+  sizes: [1024, 4096, 8192]
+  precision: float64
+protection:
+  schemes: [unprotected, astra, dmr, checkpoint_verify, data_analytic]
+  astra:
+    invariant_families: [I, II]
+    freivalds_trials: 10
+    gamma: null           # calibrate on fault-free runs before the campaign
+injection:
+  tool: f-sefi            # or an equivalent compiler-based injector
+  model: single_bit_flip
+  manifestations: [single_value, burst, control_adjacent]
+  bit_field_strata: [sign, exponent, mantissa]
+  trials_per_configuration: null   # set from analysis/analyze.py sample-size output
+  seed: 20260919
+measurement:
+  output_tolerance: [1.0e-10, 1.0e-8, 1.0e-6]   # report coverage across tolerances
+  timing_repetitions: 30
+environment:
+  machine: null
+  cpu: null
+  compiler: null
+  blas: null

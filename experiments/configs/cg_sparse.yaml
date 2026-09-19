@@ -1,0 +1,29 @@
+# Fault-injection campaign template: sparse preconditioned CG (Family III)
+# Fill in the site-specific fields before running. Nothing here has been run yet.
+campaign: cg_sparse
+workload:
+  kernel: preconditioned_cg
+  matrices: []            # SuiteSparse identifiers (Davis & Hu, 2011)
+  preconditioner: jacobi
+  precision: float64
+protection:
+  schemes: [unprotected, astra, dmr, checkpoint_verify, data_analytic]
+  astra:
+    invariant_families: [III]
+    residual_check_every: 10        # iterations between true-residual checks
+    conjugacy_tolerance: null       # calibrate on fault-free runs
+injection:
+  tool: f-sefi            # or an equivalent compiler-based injector
+  model: single_bit_flip
+  manifestations: [single_value, burst, control_adjacent]
+  bit_field_strata: [sign, exponent, mantissa]
+  trials_per_configuration: null   # set from analysis/analyze.py sample-size output
+  seed: 20260919
+measurement:
+  output_tolerance: [1.0e-10, 1.0e-8, 1.0e-6]   # report coverage across tolerances
+  timing_repetitions: 30
+environment:
+  machine: null
+  cpu: null
+  compiler: null
+  solver_library: null

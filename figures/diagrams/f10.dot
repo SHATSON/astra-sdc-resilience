@@ -1,0 +1,11 @@
+digraph G { rankdir=LR; nodesep=0.3; ranksep=0.3; bgcolor=white;
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=10, fillcolor="#EEF2F7", color="#34495E", height=0.8];
+ edge [color="#34495E", arrowsize=0.7];
+ w [label="Workloads\n(dense LA, sparse\nCG, DNN training)"];
+ g [label="Golden runs\n(fault-free\nreference + FP rate)"];
+ i [label="Fault injection\n(binary level,\nframework level)"];
+ p [label="Protected runs\n(ASTRA and\n4 baselines)"];
+ m [label="Measurement\n(coverage, overhead,\np_c, waste, fidelity)"];
+ s [label="Statistical\nanalysis and\nmodel comparison"];
+ w->g->i->p->m->s;
+}

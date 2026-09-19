@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+figures/out/
+*.egg-info/
+.DS_Store
+# Keep result schemas, ignore bulky raw logs
+experiments/results/*.csv
+experiments/results/raw/
+!experiments/results/README.md

@@ -1,0 +1,12 @@
+digraph G { rankdir=LR; nodesep=0.15; ranksep=0.5; bgcolor=white;
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, fillcolor="#EEF2F7", color="#34495E"];
+ edge [color="#34495E", arrowsize=0.7];
+ root [label="Protection against silent data corruption", fillcolor="#34495E", fontcolor=white];
+ hw [label="Hardware-level\nprotection"]; rep [label="Replication-based\nprotection"]; ckpt [label="Checkpoint/restart\nwith verification"]; app [label="Application-level\nprotection"];
+ root -> {hw rep ckpt app};
+ ecc [label="Error-correcting\ncode (ECC) memory", fillcolor=white]; hard [label="Radiation-hardened\nand redundant circuits", fillcolor=white];
+ dmr [label="Dual modular\nredundancy (DMR)", fillcolor=white]; tmr [label="Triple modular\nredundancy (TMR)", fillcolor=white];
+ roll [label="Periodic checkpoint,\nverification, rollback", fillcolor=white];
+ da [label="Data-analytic detectors\n(statistical prediction)", fillcolor=white]; abft [label="Algorithm-based fault\ntolerance (ABFT)", fillcolor="#D5E8D4", color="#2E7D32", penwidth=1.6];
+ hw -> {ecc hard}; rep -> {dmr tmr}; ckpt -> roll; app -> {da abft};
+}

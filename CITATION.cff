@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or the paper, please cite them as below."
+title: "ASTRA: Algorithmic STructure-aware Resilience Architecture"
+abstract: >-
+  Reference implementation, figure sources, campaign configurations and
+  statistical analysis code for the paper "Exploiting Algorithmic Structure for
+  Efficient Detection and Recovery from Silent Data Corruptions in Large-Scale
+  Computing Systems".
+version: "0.1.0"
+date-released: "2026-09-19"
+license: MIT
+repository-code: "https://github.com/SHATSON/astra-sdc-resilience"
+authors:
+  - family-names: "[Surname]"
+    given-names: "[Given name]"
+    affiliation: "[Institution Name]"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+keywords:
+  - silent data corruption
+  - algorithm-based fault tolerance
+  - resilience
+  - high-performance computing
+  - fault injection

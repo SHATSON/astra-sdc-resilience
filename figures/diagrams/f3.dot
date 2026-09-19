@@ -1,0 +1,8 @@
+digraph G { rankdir=LR; nodesep=0.3; ranksep=0.35; bgcolor=white;
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=10, fillcolor="#EEF2F7", color="#34495E", width=1.5, height=0.9];
+ edge [color="#34495E", arrowsize=0.7];
+ p1 [label="1. Identify\nproblem and\nmotivate"]; p2 [label="2. Define\nobjectives of\na solution"]; p3 [label="3. Design and\ndevelopment\n(ASTRA)"]; p4 [label="4. Demonstration\n(three workload\nclasses)"]; p5 [label="5. Evaluation\n(analysis +\nfault injection)"]; p6 [label="6. Communication\n(paper and\nartifacts)"];
+ p1->p2->p3->p4->p5->p6;
+ p5->p3 [label=" iterate", style=dashed, fontname="DejaVu Sans", fontsize=9, constraint=false];
+ p6->p2 [label=" iterate", style=dashed, fontname="DejaVu Sans", fontsize=9, constraint=false];
+}

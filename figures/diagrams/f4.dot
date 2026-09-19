@@ -1,0 +1,11 @@
+digraph G { rankdir=TB; ranksep=0.35; bgcolor=white;
+ node [shape=box, style="filled", fontname="DejaVu Sans", fontsize=11, width=5.8, color="#34495E"];
+ edge [color="#34495E", arrowsize=0.7];
+ app [label="Application kernel (e.g., matrix product, CG iteration, DNN layer)", fillcolor=white, style="dashed"];
+ inv [label="Invariant layer\nSelects the algebraic, randomized, recurrence, or conservation invariant", fillcolor="#D6EAF8"];
+ det [label="Detection layer\nEvaluates the invariant at low cost against a precision-aware threshold", fillcolor="#D5F5E3"];
+ loc [label="Localization layer\nIdentifies location and magnitude of the error where possible", fillcolor="#FCF3CF"];
+ rec [label="Recovery layer\nIn-place correction -> local recomputation -> self-healing -> rollback", fillcolor="#FADBD8"];
+ app->inv->det->loc->rec;
+ rec->app [label=" corrected state", fontname="DejaVu Sans", fontsize=9, style=dashed, constraint=false];
+}
